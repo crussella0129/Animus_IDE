@@ -1,0 +1,55 @@
+{
+  "name": "animus-ferric",
+  "displayName": "Animus Ferric",
+  "description": "Ferric local agent integration for Animus IDE",
+  "version": "0.1.0",
+  "publisher": "Animus",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "AI",
+    "Chat"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languageModelChatProviders": [
+      {
+        "vendor": "animus",
+        "displayName": "Ferric",
+        "description": "Animus Ferric Local Agent"
+      }
+    ],
+    "chatParticipants": [
+      {
+        "id": "animus.ferric",
+        "name": "ferric",
+        "description": "Local agentic coding harness",
+        "isSticky": true
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Animus Ferric",
+      "properties": {
+        "ferric.apiBase": {
+          "type": "string",
+          "default": "http://127.0.0.1:3581",
+          "description": "The base URL of the ferric api server"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "18.x",
+    "typescript": "^5.3.3"
+  }
+}
